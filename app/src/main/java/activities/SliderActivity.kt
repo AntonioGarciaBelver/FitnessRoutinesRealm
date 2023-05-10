@@ -47,11 +47,10 @@ class SliderActivity : AppCompatActivity() {
 
         musculos = musculoCRUD.getAllMusculos()
         //ejercicios = obtenerEjercicios(musculo)
-        ejercicios = ejercicioCRUD.getAllEjercicios()
+        ejercicios = musculo?.let { obtenerEjerciciosByMusculo(it) }!!
 
         imagenes = ejercicios[position].imagenes!!
         var ejercicioActual = ejercicios[position]
-        var nuevoEjercicio: EjercicioR
 
         tvPeso.text = ejercicios[position].peso
         tvRepeticiones.text = ejercicios[position].repeticiones
@@ -59,7 +58,6 @@ class SliderActivity : AppCompatActivity() {
         for (imagen in imagenes){
             list.add(CarouselItem(imagen))
         }
-
         carousel.addData(list)
 
         val tvTitulo = findViewById<TextView>(R.id.tvNombreEjercicio)
@@ -108,15 +106,15 @@ class SliderActivity : AppCompatActivity() {
         }
     }
 
-    fun obtenerEjercicios(ejercicio: String?):MutableList<EjercicioR>{
-        when (ejercicio) {
-            "Abdominales" -> ejercicios = CRUD.getAllEjerciciosAbdominales()
-            "Biceps" -> ejercicios = CRUD.getAllEjerciciosBiceps()
-//            2-> ejercicios = CRUD.getAllEjerciciosTriceps()
-//            3 -> ejercicios = CRUD.getAllEjerciciosEspalda()
-//            4 -> ejercicios = CRUD.getAllEjerciciosPecho()
-//            5 -> ejercicios = CRUD.getAllEjerciciosPiernas()
-//            6 -> ejercicios = CRUD.getAllEjerciciosHombros()
+    fun obtenerEjerciciosByMusculo(musculo: String):MutableList<EjercicioR>{
+        when (musculo) {
+            "Abdominales" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(0)
+            "Biceps" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(1)
+            "Triceps"-> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(2)
+            "Espalda" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(3)
+            "Pecho" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(4)
+            "Piernas" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(5)
+            "Hombros" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(6)
 //            7 -> ejercicios = CRUD.getAllEjerciciosAntebrazos()
 //            8 -> ejercicios = CRUD.getAllEjerciciosGemelos()
         }

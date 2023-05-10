@@ -11,11 +11,11 @@ open class CRUD {
         return mutableListOf (
             Musculo(0,"Abdominales", R.drawable.abdominales, getAllEjerciciosAbdominales()),
             Musculo(1,"Biceps", R.drawable.biceps, getAllEjerciciosBiceps()),
-//            Musculo(2,"TRICEPS", R.drawable.triceps, getAllEjerciciosTriceps()),
-//            Musculo(3,"ESPALDA", R.drawable.espalda, getAllEjerciciosEspalda()),
-//            Musculo(4,"PECHO", R.drawable.pecho, getAllEjerciciosPecho()),
-//            Musculo(5,"PIERNAS", R.drawable.piernas, getAllEjerciciosPiernas()),
-//            Musculo(6,"HOMBROS", R.drawable.hombros, getAllEjerciciosHombros()),
+            Musculo(2,"Triceps", R.drawable.triceps, getAllEjerciciosTriceps()),
+            Musculo(3,"Espalda", R.drawable.espalda, getAllEjerciciosEspalda()),
+            Musculo(4,"Pecho", R.drawable.pecho, getAllEjerciciosPecho()),
+            Musculo(5,"Piernas", R.drawable.piernas, getAllEjerciciosPiernas()),
+            Musculo(6,"Hombros", R.drawable.hombros, getAllEjerciciosHombros()),
 //            Musculo(7,"ANTEBRAZOS", R.drawable.antebrazo, getAllEjerciciosAntebrazos()),
 //            Musculo(8,"GEMELOS", R.drawable.gemelos, getAllEjerciciosGemelos())
         )
@@ -38,51 +38,51 @@ open class CRUD {
             EjercicioR(19,"Curl de Biceps con cable", R.drawable.biceps_5_1, getAllImagenesBiceps_5(), "0.00", "0",1)
         )
     }
-//    fun getAllEjerciciosTriceps(): MutableList<Ejercicio>{
-//        return mutableListOf (
-//            Ejercicio(20,"Pushdowns", R.drawable.espalda),
-//            Ejercicio(21,"Extensiones de Triceps", R.drawable.espalda),
-//            Ejercicio(22,"Press de Banca con Agarre Cerrado", R.drawable.espalda),
-//            Ejercicio(23,"Flexiones Diamante", R.drawable.espalda),
-//            Ejercicio(24,"Fondos con Agarre Cerrado", R.drawable.espalda)
-//        )
-//    }
-//    fun getAllEjerciciosEspalda(): MutableList<Ejercicio>{
-//        return mutableListOf (
-//            Ejercicio(25,"Dominadas", R.drawable.espalda),
-//            Ejercicio(26,"Peso Muerto", R.drawable.espalda),
-//            Ejercicio(27,"Jalones Laterales", R.drawable.espalda),
-//            Ejercicio(28,"Remadas Sentado", R.drawable.espalda),
-//            Ejercicio(29,"Extensiones de Espalda", R.drawable.espalda)
-//        )
-//    }
-//    fun getAllEjerciciosPecho(): MutableList<Ejercicio>{
-//        return mutableListOf (
-//            Ejercicio(30,"Press de Banca", R.drawable.espalda),
-//            Ejercicio(31,"Peso Inclinado", R.drawable.espalda),
-//            Ejercicio(32,"Press con Mancuernas", R.drawable.espalda),
-//            Ejercicio(33,"Fondos en Barra", R.drawable.espalda),
-//            Ejercicio(34,"Crucifijo Cruzado con Cable", R.drawable.espalda)
-//        )
-//    }
-//    fun getAllEjerciciosPiernas(): MutableList<Ejercicio>{
-//        return mutableListOf (
-//            Ejercicio(35,"Sentadillas", R.drawable.espalda),
-//            Ejercicio(36,"Press de Pierna Inclinado", R.drawable.espalda),
-//            Ejercicio(37,"Extensiones de Pierna", R.drawable.espalda),
-//            Ejercicio(38,"Lunges con Mancuerna", R.drawable.espalda),
-//            Ejercicio(39,"Sentadillas Hack", R.drawable.espalda)
-//        )
-//    }
-//    fun getAllEjerciciosHombros(): MutableList<Ejercicio>{
-//        return mutableListOf (
-//            Ejercicio(40,"Press con Mancuernas Sentado", R.drawable.espalda),
-//            Ejercicio(41,"Press Frontal Sentado con Barra", R.drawable.espalda),
-//            Ejercicio(42,"Jalones Laterales", R.drawable.espalda),
-//            Ejercicio(43,"Elevaciones Laterales con Polea Baja", R.drawable.espalda),
-//            Ejercicio(44,"Elevaciones Pájaro con Mancuernas", R.drawable.espalda)
-//        )
-//    }
+    fun getAllEjerciciosTriceps(): RealmList<EjercicioR>{
+        return RealmList (
+            EjercicioR(20,"Pushdowns", R.drawable.triceps_1_1,getAllImagenesTriceps_1(), "0.00", "0",2),
+            EjercicioR(21,"Extensiones de Triceps", R.drawable.triceps_2_1, getAllImagenesTriceps_2(), "0.00", "0",2),
+            EjercicioR(22,"Press de Banca con Agarre Cerrado", R.drawable.triceps_3_1, getAllImagenesTriceps_3(), "0.00", "0",2),
+            EjercicioR(23,"Flexiones Diamante", R.drawable.triceps_4_1, getAllImagenesTriceps_4(), "0.00", "0",2),
+            EjercicioR(24,"Fondos Triceps en Banco", R.drawable.triceps_5_1, getAllImagenesTriceps_5(), "0.00", "0",2)
+        )
+    }
+    fun getAllEjerciciosEspalda(): RealmList<EjercicioR>{
+        return RealmList (
+            EjercicioR(25,"Dominadas", R.drawable.espalda_1_1 ,getAllImagenesEspalda_1(), "0.00", "0",3),
+            EjercicioR(26,"Peso Muerto", R.drawable.espalda_2_1 ,getAllImagenesEspalda_2(), "0.00", "0",3),
+            EjercicioR(27,"Jalones Laterales", R.drawable.espalda_3_1 ,getAllImagenesEspalda_3(), "0.00", "0",3),
+            EjercicioR(28,"Remadas Sentado", R.drawable.espalda_4_1 ,getAllImagenesEspalda_4(), "0.00", "0",3),
+            EjercicioR(29,"Extensiones de Espalda", R.drawable.espalda_5_1 ,getAllImagenesEspalda_5(), "0.00", "0",3)
+        )
+    }
+    fun getAllEjerciciosPecho(): RealmList<EjercicioR>{
+        return RealmList (
+            EjercicioR(30,"Press de Banca", R.drawable.pecho_1_1 ,getAllImagenesPecho_1(), "0.00", "0",4),
+            EjercicioR(31,"Peso Inclinado", R.drawable.pecho_2_1 ,getAllImagenesPecho_2(), "0.00", "0",4),
+            EjercicioR(32,"Press con Mancuernas", R.drawable.pecho_3_1 ,getAllImagenesPecho_3(), "0.00", "0",4),
+            EjercicioR(33,"Fondos en Barra", R.drawable.pecho_4_1 ,getAllImagenesPecho_4(), "0.00", "0",4),
+            EjercicioR(34,"Crucifijo Cruzado con Cable", R.drawable.pecho_5_1 ,getAllImagenesPecho_5(), "0.00", "0",4)
+        )
+    }
+    fun getAllEjerciciosPiernas(): RealmList<EjercicioR>{
+        return RealmList (
+            EjercicioR(35,"Sentadillas", R.drawable.piernas_1_1 ,getAllImagenesPiernas_1(), "0.00", "0",5),
+            EjercicioR(36,"Press de Pierna Inclinado", R.drawable.piernas_2_1 ,getAllImagenesPiernas_2(), "0.00", "0",5),
+            EjercicioR(37,"Extensiones de Pierna", R.drawable.piernas_3_1 ,getAllImagenesPiernas_3(), "0.00", "0",5),
+            EjercicioR(38,"Lunges con Mancuerna", R.drawable.piernas_4_1 ,getAllImagenesPiernas_4(), "0.00", "0",5),
+            EjercicioR(39,"Sentadillas Hack", R.drawable.piernas_5_1 ,getAllImagenesPiernas_5(), "0.00", "0",5)
+        )
+    }
+    fun getAllEjerciciosHombros(): RealmList<EjercicioR>{
+        return RealmList (
+            EjercicioR(40,"Press con Mancuernas Sentado", R.drawable.hombros_1_1 ,getAllImagenesHombros_1(), "0.00", "0",6),
+            EjercicioR(41,"Press Frontal Sentado con Barra", R.drawable.hombros_2_1 ,getAllImagenesHombros_2(), "0.00", "0",6),
+            EjercicioR(42,"Elevaciones Frontales", R.drawable.hombros_3_1 ,getAllImagenesHombros_3(), "0.00", "0",6),
+            EjercicioR(43,"Elevaciones Laterales con Polea Baja", R.drawable.hombros_4_1 ,getAllImagenesHombros_4(), "0.00", "0",6),
+            EjercicioR(44,"Elevaciones Pájaro con Mancuernas", R.drawable.hombros_5_1 ,getAllImagenesHombros_5(), "0.00", "0",6)
+        )
+    }
 //    fun getAllEjerciciosAntebrazos(): MutableList<Ejercicio>{
 //        return mutableListOf (
 //            Ejercicio(45,"Curl de Muñeca con Barra", R.drawable.espalda),
@@ -133,4 +133,90 @@ open class CRUD {
     fun getAllImagenesBiceps_5(): RealmList<Int>{
         return RealmList(R.drawable.biceps_5_1, R.drawable.biceps_5_2)
     }
+
+    //------------------------IMAGENES EJERCICIOS TRICEPS-------------------------------------------
+    fun getAllImagenesTriceps_1(): RealmList<Int>{
+        return RealmList(R.drawable.triceps_1_1, R.drawable.triceps_1_2, R.drawable.triceps_1_3)
+    }
+    fun getAllImagenesTriceps_2(): RealmList<Int>{
+        return RealmList(R.drawable.triceps_2_1, R.drawable.triceps_2_2, R.drawable.triceps_2_3)
+    }
+    fun getAllImagenesTriceps_3(): RealmList<Int>{
+        return RealmList(R.drawable.triceps_3_1, R.drawable.triceps_3_2, R.drawable.triceps_3_3)
+    }
+    fun getAllImagenesTriceps_4(): RealmList<Int>{
+        return RealmList(R.drawable.triceps_4_1, R.drawable.triceps_4_2, R.drawable.triceps_4_3)
+    }
+    fun getAllImagenesTriceps_5(): RealmList<Int>{
+        return RealmList(R.drawable.triceps_5_1, R.drawable.triceps_5_2, R.drawable.triceps_5_3)
+    }
+
+    //------------------------IMAGENES EJERCICIOS ESPALDA-------------------------------------------
+    fun getAllImagenesEspalda_1(): RealmList<Int>{
+        return RealmList(R.drawable.espalda_1_1, R.drawable.espalda_1_2, R.drawable.espalda_1_3)
+    }
+    fun getAllImagenesEspalda_2(): RealmList<Int>{
+        return RealmList(R.drawable.espalda_2_1, R.drawable.espalda_2_2, R.drawable.espalda_2_3)
+    }
+    fun getAllImagenesEspalda_3(): RealmList<Int>{
+        return RealmList(R.drawable.espalda_3_1, R.drawable.espalda_3_2, R.drawable.espalda_3_3)
+    }
+    fun getAllImagenesEspalda_4(): RealmList<Int>{
+        return RealmList(R.drawable.espalda_4_1, R.drawable.espalda_4_2, R.drawable.espalda_4_3)
+    }
+    fun getAllImagenesEspalda_5(): RealmList<Int>{
+        return RealmList(R.drawable.espalda_5_1, R.drawable.espalda_5_2, R.drawable.espalda_5_3)
+    }
+
+    //------------------------IMAGENES EJERCICIOS PECHO-------------------------------------------
+    fun getAllImagenesPecho_1(): RealmList<Int>{
+        return RealmList(R.drawable.pecho_1_1, R.drawable.pecho_1_2, R.drawable.pecho_1_3)
+    }
+    fun getAllImagenesPecho_2(): RealmList<Int>{
+        return RealmList(R.drawable.pecho_2_1, R.drawable.pecho_2_2, R.drawable.pecho_2_3)
+    }
+    fun getAllImagenesPecho_3(): RealmList<Int>{
+        return RealmList(R.drawable.pecho_3_1, R.drawable.pecho_3_2, R.drawable.pecho_3_3)
+    }
+    fun getAllImagenesPecho_4(): RealmList<Int>{
+        return RealmList(R.drawable.pecho_4_1, R.drawable.pecho_4_2, R.drawable.pecho_4_3)
+    }
+    fun getAllImagenesPecho_5(): RealmList<Int>{
+        return RealmList(R.drawable.pecho_5_1, R.drawable.pecho_5_2, R.drawable.pecho_5_3)
+    }
+
+    //------------------------IMAGENES EJERCICIOS PIERNAS-------------------------------------------
+    fun getAllImagenesPiernas_1(): RealmList<Int>{
+        return RealmList(R.drawable.piernas_1_1, R.drawable.piernas_1_2, R.drawable.piernas_1_3)
+    }
+    fun getAllImagenesPiernas_2(): RealmList<Int>{
+        return RealmList(R.drawable.piernas_2_1, R.drawable.piernas_2_2, R.drawable.piernas_2_3)
+    }
+    fun getAllImagenesPiernas_3(): RealmList<Int>{
+        return RealmList(R.drawable.piernas_3_1, R.drawable.piernas_3_2, R.drawable.piernas_3_3)
+    }
+    fun getAllImagenesPiernas_4(): RealmList<Int>{
+        return RealmList(R.drawable.piernas_4_1, R.drawable.piernas_4_2, R.drawable.piernas_4_3)
+    }
+    fun getAllImagenesPiernas_5(): RealmList<Int>{
+        return RealmList(R.drawable.piernas_5_1, R.drawable.piernas_5_2, R.drawable.piernas_5_3)
+    }
+
+    //------------------------IMAGENES EJERCICIOS HOMBROS-------------------------------------------
+    fun getAllImagenesHombros_1(): RealmList<Int>{
+        return RealmList(R.drawable.hombros_1_1, R.drawable.hombros_1_2, R.drawable.hombros_1_3)
+    }
+    fun getAllImagenesHombros_2(): RealmList<Int>{
+        return RealmList(R.drawable.hombros_2_1, R.drawable.hombros_2_2, R.drawable.hombros_2_3)
+    }
+    fun getAllImagenesHombros_3(): RealmList<Int>{
+        return RealmList(R.drawable.hombros_3_1, R.drawable.hombros_3_2, R.drawable.hombros_3_3)
+    }
+    fun getAllImagenesHombros_4(): RealmList<Int>{
+        return RealmList(R.drawable.hombros_4_1, R.drawable.hombros_4_2, R.drawable.hombros_4_3)
+    }
+    fun getAllImagenesHombros_5(): RealmList<Int>{
+        return RealmList(R.drawable.hombros_5_1, R.drawable.hombros_5_2, R.drawable.hombros_5_3)
+    }
+
 }

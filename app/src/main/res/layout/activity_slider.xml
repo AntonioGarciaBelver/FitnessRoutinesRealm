@@ -112,7 +112,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="307dp"
+        android:layout_height="320dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
             android:id="@+id/carousel"
             android:layout_width="match_parent"
-            android:layout_height="281dp" />
+            android:layout_height="321dp" />
     </LinearLayout>
 
     <LinearLayout

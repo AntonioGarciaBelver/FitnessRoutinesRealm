@@ -38,25 +38,28 @@ open class MusculoCRUD {
         return persona
     }
 
-    fun getCategoria(id: Int): Musculo? {
-        var realm: Realm = Realm.getDefaultInstance()
-        return realm.where(Musculo::class.java).equalTo("id", id).findFirst()
-
-    }
-
-    fun actualizarPersona(persona: Musculo) {
+    fun actualizarMusculo(musculo: Musculo) {
         val realm = Realm.getDefaultInstance()
         realm.executeTransaction { realm ->
-            realm.copyToRealmOrUpdate(persona)
+            realm.copyToRealmOrUpdate(musculo)
         }
         realm.close()
     }
 
-    fun eliminarPersonaPorId(id: Int) {
+    fun eliminarMusculoPorId(id: Int) {
         val realm = Realm.getDefaultInstance()
         realm.executeTransaction { realm ->
             val persona = realm.where(Musculo::class.java).equalTo("id", id).findFirst()
             persona?.deleteFromRealm()
+        }
+        realm.close()
+    }
+
+    fun deleteAllMusculos() {
+        val realm = Realm.getDefaultInstance()
+        realm.executeTransaction { realm ->
+            val musculos = realm.where(Musculo::class.java).findAll()
+            musculos.deleteAllFromRealm()
         }
         realm.close()
     }

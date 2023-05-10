@@ -34,10 +34,9 @@ class MainActivity : AppCompatActivity() {
 //            .build()
 //        val realm = Realm.getInstance(config)
 
-        musculos = crud.getAllMusculos()
+        musculoCRUD.deleteAllMusculos()
         rellenar_bd()
-
-//        musculos = musculoCRUD.getAllMusculos()
+        musculos = musculoCRUD.getAllMusculos()
 
 
         val mRecyclerView: RecyclerView = findViewById(R.id.recyclerView)

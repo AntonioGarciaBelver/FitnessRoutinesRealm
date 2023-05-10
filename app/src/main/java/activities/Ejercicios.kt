@@ -62,7 +62,7 @@ class Ejercicios : AppCompatActivity() {
         when (positionActual) {
             0 -> ejercicios = CRUD.getAllEjerciciosAbdominales()
             1 -> ejercicios = CRUD.getAllEjerciciosBiceps()
-//            2-> ejercicios = CRUD.getAllEjerciciosTriceps()
+            2-> ejercicios = CRUD.getAllEjerciciosTriceps()
 //            3 -> ejercicios = CRUD.getAllEjerciciosEspalda()
 //            4 -> ejercicios = CRUD.getAllEjerciciosPecho()
 //            5 -> ejercicios = CRUD.getAllEjerciciosPiernas()
@@ -77,11 +77,11 @@ class Ejercicios : AppCompatActivity() {
         when (musculo) {
             "Abdominales" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(0)
             "Biceps" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(1)
-//            2-> ejercicios = CRUD.getAllEjerciciosTriceps()
-//            3 -> ejercicios = CRUD.getAllEjerciciosEspalda()
-//            4 -> ejercicios = CRUD.getAllEjerciciosPecho()
-//            5 -> ejercicios = CRUD.getAllEjerciciosPiernas()
-//            6 -> ejercicios = CRUD.getAllEjerciciosHombros()
+            "Triceps"-> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(2)
+            "Espalda" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(3)
+            "Pecho" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(4)
+            "Piernas" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(5)
+            "Hombros" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(6)
 //            7 -> ejercicios = CRUD.getAllEjerciciosAntebrazos()
 //            8 -> ejercicios = CRUD.getAllEjerciciosGemelos()
         }
