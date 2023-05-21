@@ -3,6 +3,7 @@ package crud
 import com.example.fitnessroutines.R
 import io.realm.RealmList
 import models.EjercicioR
+import models.EjerciciosDia
 import models.Musculo
 
 open class CRUD {
@@ -219,4 +220,15 @@ open class CRUD {
         return RealmList(R.drawable.hombros_5_1, R.drawable.hombros_5_2, R.drawable.hombros_5_3)
     }
 
+    fun getDefaultDias(): RealmList<EjerciciosDia> {
+        return RealmList(
+            EjerciciosDia(0, "Lunes", null),
+            EjerciciosDia(1, "Martes", null),
+            EjerciciosDia(2, "Miércoles", null),
+            EjerciciosDia(3, "Jueves", null),
+            EjerciciosDia(4, "Viernes", null),
+            EjerciciosDia(5, "Sábado", null),
+            EjerciciosDia(6, "Domingo", null)
+        )
+    }
 }

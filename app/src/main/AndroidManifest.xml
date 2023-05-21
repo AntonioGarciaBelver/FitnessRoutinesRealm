@@ -14,9 +14,10 @@
         android:theme="@style/Theme.FitnessRoutines"
         tools:targetApi="31">
         <activity
-            android:name="activities.MainActivity"
+            android:name="activities.SplashActivity"
             android:windowSoftInputMode="adjustResize"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,8 +28,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name="activities.Ejercicios" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.MainActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.EjerciciosActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="activities.SliderActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.DiasActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.EjerciciosPersonalizadosActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.AllEjerciciosActivity" android:windowSoftInputMode="adjustResize"/>
+
     </application>
 
 </manifest>

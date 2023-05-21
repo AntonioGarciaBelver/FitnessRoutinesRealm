@@ -17,7 +17,7 @@ import crud.MusculoCRUD
 import models.EjercicioR
 import models.Musculo
 
-class Ejercicios : AppCompatActivity() {
+class EjerciciosActivity : AppCompatActivity() {
     private lateinit var musculos: MutableList<Musculo>
     private lateinit var ejercicios: MutableList<EjercicioR>
     private lateinit var mAdapter: RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>
@@ -43,7 +43,7 @@ class Ejercicios : AppCompatActivity() {
         mAdapter = EjerciciosAdapter(ejercicios, object : OnItemClickListener {
             override fun OnItemClick(vista: View, position: Int) {
 
-                val intent = Intent(this@Ejercicios, SliderActivity::class.java)
+                val intent = Intent(this@EjerciciosActivity, SliderActivity::class.java)
                 intent.putExtra("position", position)
                 intent.putExtra("musculo", musculo)
 
@@ -88,6 +88,8 @@ class Ejercicios : AppCompatActivity() {
         return ejercicios
     }
 }
+
+//        <activity android:name="activities.DiasActivity" android:windowSoftInputMode="adjustResize"/>
 
 
 

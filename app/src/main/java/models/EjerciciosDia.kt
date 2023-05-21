@@ -6,16 +6,10 @@ import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
 @RealmClass
-open class EjercicioR(
+open class EjerciciosDia(
     @PrimaryKey var id: Int = 0,
     var nombre: String? = null,
-    var imagen: Int = 0,
-    var imagenes: RealmList<Int>? = null,
-    var peso: String? = null,
-    var repeticiones: String? = null,
-    var musculoID: Int = 0,
-    var isSelected: Boolean = false
-
+    var ejercicios: RealmList<EjercicioR>? = RealmList()
 
 ) : RealmObject()
 

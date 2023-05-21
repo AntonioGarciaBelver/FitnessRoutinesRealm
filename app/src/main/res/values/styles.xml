@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Otros atributos del estilo -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item> <!-- Si también deseas eliminar el título de la ventana -->
+    </style>
+</resources>
