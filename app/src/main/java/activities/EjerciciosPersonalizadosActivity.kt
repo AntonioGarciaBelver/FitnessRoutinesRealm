@@ -34,7 +34,6 @@ class EjerciciosPersonalizadosActivity : AppCompatActivity(), View.OnCreateConte
     var EjerciciosDiaCRUD: EjerciciosDiaCRUD = EjerciciosDiaCRUD()
     private lateinit var mLayoutManager: RecyclerView.LayoutManager
     private lateinit var mAdapter: EjerciciosPersonalizadosAdapter
-    private var posicion: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

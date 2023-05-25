@@ -23,13 +23,10 @@ import java.util.*
 class SliderPersonalizadaActivity : AppCompatActivity() {
 
     val list = mutableListOf<CarouselItem>()
-    private lateinit var ejercicios: MutableList<EjercicioR>
     private lateinit var ejercicioActual: EjercicioR
     private lateinit var imagenes: RealmList<Int>
     var CRUD: CRUD = CRUD()
-    var musculoCRUD: MusculoCRUD = MusculoCRUD()
     var ejercicioCRUD: EjercicioCRUD = EjercicioCRUD()
-    var ejerciciosDiaCRUD: EjerciciosDiaCRUD = EjerciciosDiaCRUD()
     var mes: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,10 +72,7 @@ class SliderPersonalizadaActivity : AppCompatActivity() {
         val btnCalendario = findViewById<ImageView>(R.id.btnCalendario)
 
         btnCalendario.setOnClickListener {
-            // Obtén la fecha actual
             val cal = Calendar.getInstance()
-
-            // Crea un objeto DatePickerDialog y configúralo para que muestre la fecha actual
             val datePickerDialog = DatePickerDialog(
                 this,
                 { view, year, monthOfYear, dayOfMonth ->

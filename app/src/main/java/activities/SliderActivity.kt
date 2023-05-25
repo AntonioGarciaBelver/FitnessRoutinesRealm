@@ -68,15 +68,12 @@ class SliderActivity : AppCompatActivity() {
         val tvTitulo = findViewById<TextView>(R.id.tvNombreEjercicio)
         tvTitulo.text= ejercicios[position].nombre
         tvTitulo.isSelected = true
-
         tvFecha.text= obtenerFechaActual()
         val btnCalendario = findViewById<ImageView>(R.id.btnCalendario)
 
         btnCalendario.setOnClickListener {
-            // Obtén la fecha actual
-            val cal = Calendar.getInstance()
 
-            // Crea un objeto DatePickerDialog y configúralo para que muestre la fecha actual
+            val cal = Calendar.getInstance()
             val datePickerDialog = DatePickerDialog(
                 this,
                 { view, year, monthOfYear, dayOfMonth ->
@@ -138,14 +135,10 @@ class SliderActivity : AppCompatActivity() {
     }
 
     fun obtenerFechaActual(): String {
-        // Obtiene la fecha y hora actual
         val cal = Calendar.getInstance()
-
-        // Formatea la fecha y hora actual en un formato que te guste
         val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val fechaActual = dateFormat.format(cal.time)
 
-        // Retorna la fecha actual
         return fechaActual
     }
 
