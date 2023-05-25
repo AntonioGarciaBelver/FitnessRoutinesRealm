@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        vaciar_bd()
+        //vaciar_bd()
         rellenar_bd()
         musculos = musculoCRUD.getAllMusculos()
 

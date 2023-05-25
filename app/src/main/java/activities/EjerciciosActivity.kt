@@ -55,22 +55,6 @@ class EjerciciosActivity : AppCompatActivity() {
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.itemAnimator = DefaultItemAnimator()
         mRecyclerView.layoutManager = mLayoutManager
-
-
-    }
-    fun obtenerEjercicios(positionActual:Int):MutableList<EjercicioR>{
-        when (positionActual) {
-            0 -> ejercicios = CRUD.getAllEjerciciosAbdominales()
-            1 -> ejercicios = CRUD.getAllEjerciciosBiceps()
-            2-> ejercicios = CRUD.getAllEjerciciosTriceps()
-//            3 -> ejercicios = CRUD.getAllEjerciciosEspalda()
-//            4 -> ejercicios = CRUD.getAllEjerciciosPecho()
-//            5 -> ejercicios = CRUD.getAllEjerciciosPiernas()
-//            6 -> ejercicios = CRUD.getAllEjerciciosHombros()
-//            7 -> ejercicios = CRUD.getAllEjerciciosAntebrazos()
-//            8 -> ejercicios = CRUD.getAllEjerciciosGemelos()
-        }
-        return ejercicios
     }
 
     fun obtenerEjerciciosByMusculo(musculo: String):MutableList<EjercicioR>{
@@ -88,8 +72,3 @@ class EjerciciosActivity : AppCompatActivity() {
         return ejercicios
     }
 }
-
-//        <activity android:name="activities.DiasActivity" android:windowSoftInputMode="adjustResize"/>
-
-
-

@@ -14,8 +14,10 @@ open class EjercicioR(
     var peso: String? = null,
     var repeticiones: String? = null,
     var musculoID: Int = 0,
-    var isSelected: Boolean = false
-
+    var isSelected: Boolean = false,
+    var dia: String = "",
+    var mes: String = "",
+    var año: String = ""
 
 ) : RealmObject()
 

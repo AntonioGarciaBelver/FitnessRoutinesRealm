@@ -2,4 +2,15 @@
     <string name="app_name">Rutinas Fitness</string>
     <string name="navigation_drawer_open">Abrir menú</string>
     <string name="navigation_drawer_close">Cerrar menú</string>
+
+    <string-array name="musculos">
+        <item>Todos</item>
+        <item>Abdominales</item>
+        <item>Biceps</item>
+        <item>Triceps</item>
+        <item>Espalda</item>
+        <item>Pecho</item>
+        <item>Piernas</item>
+        <item>Hombros</item>
+    </string-array>
 </resources>

@@ -20,10 +20,7 @@ class AllEjerciciosAdapter(
 ) :
     RecyclerView.Adapter<AllEjerciciosAdapter.ViewHolder>() {
 
-    var musculoCRUD: MusculoCRUD = MusculoCRUD()
-    var ejerciciosDiaCRUD: EjerciciosDiaCRUD = EjerciciosDiaCRUD()
     var selectedItems: RealmList<EjercicioR> = RealmList()
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context)
@@ -36,17 +33,8 @@ class AllEjerciciosAdapter(
 
         holder.tvTitulo.text = currentItem.nombre
         holder.ivEjercicio.setImageResource(currentItem.imagen)
-        holder.checkBox.isChecked = currentItem.isSelected
 
-//        holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
-//            if (isChecked) {
-//                currentItem.isSelected = true
-//                selectedItems.add(currentItem)
-//            } else {
-//                currentItem.isSelected = false
-//                selectedItems.remove(currentItem)
-//            }
-//        }
+        holder.checkBox.isChecked = currentItem.isSelected
 
         holder.itemView.setOnClickListener {
             Realm.getDefaultInstance().executeTransaction { realm ->
@@ -89,5 +77,10 @@ class AllEjerciciosAdapter(
         }
     }
 
+    fun actualizarListaEjercicios(nuevaListaEjercicios: MutableList<EjercicioR>) {
+        ejercicios.clear()
+        ejercicios.addAll(nuevaListaEjercicios)
+        notifyDataSetChanged()
+    }
 
 }

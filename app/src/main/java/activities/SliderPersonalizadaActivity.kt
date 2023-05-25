@@ -10,26 +10,26 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitnessroutines.R
 import crud.EjercicioCRUD
+import crud.EjerciciosDiaCRUD
 import crud.MusculoCRUD
 import io.realm.Realm
 import io.realm.RealmList
 import models.EjercicioR
-import models.Musculo
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
-import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SliderActivity : AppCompatActivity() {
+class SliderPersonalizadaActivity : AppCompatActivity() {
 
-    private lateinit var musculos: MutableList<Musculo>
     val list = mutableListOf<CarouselItem>()
     private lateinit var ejercicios: MutableList<EjercicioR>
+    private lateinit var ejercicioActual: EjercicioR
     private lateinit var imagenes: RealmList<Int>
     var CRUD: CRUD = CRUD()
     var musculoCRUD: MusculoCRUD = MusculoCRUD()
     var ejercicioCRUD: EjercicioCRUD = EjercicioCRUD()
+    var ejerciciosDiaCRUD: EjerciciosDiaCRUD = EjerciciosDiaCRUD()
     var mes: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,33 +43,35 @@ class SliderActivity : AppCompatActivity() {
         val etPeso = findViewById<EditText>(R.id.editTextPeso)
         val etRepeticiones = findViewById<EditText>(R.id.editTextRepeticiones)
         val carousel: ImageCarousel = findViewById(R.id.carousel)
-        val diaActual= findViewById<TextView>(R.id.tvDiaActual)
-        val mesActual= findViewById<TextView>(R.id.tvMesActual)
-        val añoActual= findViewById<TextView>(R.id.tvAñoActual)
+        val diaActual = findViewById<TextView>(R.id.tvDiaActual)
+        val mesActual = findViewById<TextView>(R.id.tvMesActual)
+        val añoActual = findViewById<TextView>(R.id.tvAñoActual)
+
 
         var position = intent.getIntExtra("position", -1)
-        var musculo = intent.getStringExtra("musculo")
+        var ejercicioId = intent.getIntExtra("ejercicioID", -1)
 
-        musculos = musculoCRUD.getAllMusculos()
-        //ejercicios = obtenerEjercicios(musculo)
-        ejercicios = musculo?.let { obtenerEjerciciosByMusculo(it) }!!
+        ejercicioActual = ejercicioCRUD.getEjercicioByID(ejercicioId)!!
+        imagenes = ejercicioActual.imagenes!!
 
-        imagenes = ejercicios[position].imagenes!!
-        var ejercicioActual = ejercicios[position]
+        tvPeso.text = ejercicioActual.peso
+        tvRepeticiones.text = ejercicioActual.repeticiones
+        if (ejercicioActual.dia != "" && ejercicioActual.mes != "" && ejercicioActual.año != "") {
+            diaActual.text = ejercicioActual.dia
+            mesActual.text = ejercicioActual.mes
+            añoActual.text = ejercicioActual.año
+        }
 
-        tvPeso.text = ejercicios[position].peso
-        tvRepeticiones.text = ejercicios[position].repeticiones
-
-        for (imagen in imagenes){
+        for (imagen in imagenes) {
             list.add(CarouselItem(imagen))
         }
         carousel.addData(list)
 
         val tvTitulo = findViewById<TextView>(R.id.tvNombreEjercicio)
-        tvTitulo.text= ejercicios[position].nombre
+        tvTitulo.text = ejercicioActual.nombre
         tvTitulo.isSelected = true
 
-        tvFecha.text= obtenerFechaActual()
+        tvFecha.text = obtenerFechaActual()
         val btnCalendario = findViewById<ImageView>(R.id.btnCalendario)
 
         btnCalendario.setOnClickListener {
@@ -92,13 +94,11 @@ class SliderActivity : AppCompatActivity() {
                 cal.get(Calendar.MONTH),
                 cal.get(Calendar.DAY_OF_MONTH)
             )
-
             datePickerDialog.show()
         }
 
-
-        btnAñadir.setOnClickListener(){
-            tvPeso.text= etPeso.text
+        btnAñadir.setOnClickListener() {
+            tvPeso.text = etPeso.text
             tvRepeticiones.text = etRepeticiones.text
 
             val realm = Realm.getDefaultInstance()
@@ -116,25 +116,11 @@ class SliderActivity : AppCompatActivity() {
             realm.close()
 
             ejercicioActual = ejercicioCRUD.getEjercicioByID(ejercicioActual.id)!!
-            tvPeso.text= ejercicioActual.peso
+            tvPeso.text = ejercicioActual.peso
             tvRepeticiones.text = ejercicioActual.repeticiones
 
         }
-    }
 
-    fun obtenerEjerciciosByMusculo(musculo: String):MutableList<EjercicioR>{
-        when (musculo) {
-            "Abdominales" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(0)
-            "Biceps" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(1)
-            "Triceps"-> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(2)
-            "Espalda" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(3)
-            "Pecho" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(4)
-            "Piernas" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(5)
-            "Hombros" -> ejercicios = ejercicioCRUD.getAllEjerciciosByMusculoID(6)
-//            7 -> ejercicios = CRUD.getAllEjerciciosAntebrazos()
-//            8 -> ejercicios = CRUD.getAllEjerciciosGemelos()
-        }
-        return ejercicios
     }
 
     fun obtenerFechaActual(): String {
@@ -149,8 +135,8 @@ class SliderActivity : AppCompatActivity() {
         return fechaActual
     }
 
-    fun obtenerMesActual(mesActual: Int): String{
-        when(mesActual){
+    fun obtenerMesActual(mesActual: Int): String {
+        when (mesActual) {
             0 -> mes = "Enero"
             1 -> mes = "Febrero"
             2 -> mes = "Marzo"
@@ -166,4 +152,5 @@ class SliderActivity : AppCompatActivity() {
         }
         return mes
     }
+
 }

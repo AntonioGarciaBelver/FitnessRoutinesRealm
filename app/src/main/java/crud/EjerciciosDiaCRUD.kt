@@ -1,6 +1,7 @@
 package crud
 
 import io.realm.Realm
+import models.EjercicioR
 import models.EjerciciosDia
 
 open class EjerciciosDiaCRUD {
@@ -38,12 +39,15 @@ open class EjerciciosDiaCRUD {
         return ejercicios_list.toMutableList()
     }
 
-
     fun getEjercicioByID(id: Int): EjerciciosDia? {
         val realm = Realm.getDefaultInstance()
         val persona = realm.where(EjerciciosDia::class.java).equalTo("id", id).findFirst()
         realm.close()
         return persona
+    }
+
+    fun getAllEjerciciosFromEjercicioDia(ejercicio: EjerciciosDia): MutableList<EjercicioR>?{
+        return ejercicio.ejercicios?.toMutableList()
     }
 
     fun actualizarEjercicio(musculo: EjerciciosDia) {

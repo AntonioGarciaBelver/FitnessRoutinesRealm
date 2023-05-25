@@ -34,6 +34,7 @@
         <activity android:name="activities.DiasActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="activities.EjerciciosPersonalizadosActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name="activities.AllEjerciciosActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="activities.SliderPersonalizadaActivity" android:windowSoftInputMode="adjustResize"/>
 
     </application>
 
