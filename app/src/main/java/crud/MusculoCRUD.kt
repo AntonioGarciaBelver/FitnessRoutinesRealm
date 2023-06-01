@@ -30,6 +30,15 @@ open class MusculoCRUD {
         return list
     }
 
+    fun deleteAllMusculos() {
+        val realm = Realm.getDefaultInstance()
+        realm.executeTransaction { realm ->
+            val musculos = realm.where(Musculo::class.java).findAll()
+            musculos.deleteAllFromRealm()
+        }
+        realm.close()
+    }
+
 
     fun getMusculo(id: Int): Musculo? {
         val realm = Realm.getDefaultInstance()
@@ -51,15 +60,6 @@ open class MusculoCRUD {
         realm.executeTransaction { realm ->
             val persona = realm.where(Musculo::class.java).equalTo("id", id).findFirst()
             persona?.deleteFromRealm()
-        }
-        realm.close()
-    }
-
-    fun deleteAllMusculos() {
-        val realm = Realm.getDefaultInstance()
-        realm.executeTransaction { realm ->
-            val musculos = realm.where(Musculo::class.java).findAll()
-            musculos.deleteAllFromRealm()
         }
         realm.close()
     }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/nav_item_one"
+            android:title="Ejercicios"
+            android:icon="@drawable/nav_icon_biceps"></item>
+        <item android:id="@+id/nav_item_two"
+            android:title="Personalizado"
+            android:icon="@drawable/nav_icon_entrenamiento"></item>
+        <item android:id="@+id/nav_item_three"
+            android:title="Eliminar Entrenamientos"
+            android:icon="@drawable/lecho"></item>
+    </group>
+</menu>

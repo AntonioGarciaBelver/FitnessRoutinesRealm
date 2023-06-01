@@ -21,6 +21,7 @@ open class CRUD {
 //            Musculo(8,"GEMELOS", R.drawable.gemelos, getAllEjerciciosGemelos())
         )
     }
+
     fun getAllEjerciciosAbdominales(): RealmList<EjercicioR>{
         return RealmList (
             EjercicioR(10,"Sentadillas en Banco Inclinado", R.drawable.abdominales_1_1, getAllImagenesAbdominales_1(), "0.00", "0", 0),

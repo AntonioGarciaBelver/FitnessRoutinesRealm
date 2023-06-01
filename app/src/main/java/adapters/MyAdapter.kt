@@ -12,7 +12,7 @@ class MyAdapter(private var musculos:MutableList<Musculo>, var listener: OnItemC
                                             RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v=LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_item, parent, false)
+        val v=LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_musculos, parent, false)
         return ViewHolder(v,listener)
     }
 

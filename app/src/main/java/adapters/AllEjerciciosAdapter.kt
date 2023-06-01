@@ -35,6 +35,21 @@ class AllEjerciciosAdapter(
         holder.ivEjercicio.setImageResource(currentItem.imagen)
 
         holder.checkBox.isChecked = currentItem.isSelected
+        holder.checkBox.setOnClickListener {
+            Realm.getDefaultInstance().executeTransaction { realm ->
+                currentItem.isSelected = !currentItem.isSelected
+                holder.checkBox.isChecked = currentItem.isSelected
+                if(holder.checkBox.isChecked){
+                    currentItem.isSelected = true
+                    selectedItems.add(currentItem)
+                }else{
+                    currentItem.isSelected = false
+                    selectedItems.remove(currentItem)
+                }
+                realm.copyToRealmOrUpdate(currentItem)
+                realm.copyToRealmOrUpdate(selectedItems)  // Actualizar el objeto en Realm
+            }
+        }
 
         holder.itemView.setOnClickListener {
             Realm.getDefaultInstance().executeTransaction { realm ->

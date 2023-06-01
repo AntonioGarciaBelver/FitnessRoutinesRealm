@@ -15,20 +15,17 @@ open class EjercicioCRUD {
         }
         realm.close()
     }
-
     fun addAllEjercicios(){
         for (ejercicioR in crud.getAllEjerciciosAbdominales()){
             addEjercicio(ejercicioR)
         }
     }
-
     fun getEjercicioByID(id: Int): EjercicioR? {
         val realm = Realm.getDefaultInstance()
         val ejercicio = realm.where(EjercicioR::class.java).equalTo("id", id).findFirst()
         realm.close()
         return ejercicio
     }
-
     fun getAllEjercicios(): MutableList<EjercicioR> {
 
         val realm = Realm.getDefaultInstance()
@@ -38,7 +35,6 @@ open class EjercicioCRUD {
         realm.close()
         return list
     }
-
     fun getAllEjerciciosByMusculoID(musculoID: Int): MutableList<EjercicioR> {
         val realm = Realm.getDefaultInstance()
         val ejercicios_list = realm.where(EjercicioR::class.java)

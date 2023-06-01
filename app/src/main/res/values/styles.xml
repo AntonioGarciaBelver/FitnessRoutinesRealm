@@ -5,4 +5,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item> <!-- Si también deseas eliminar el título de la ventana -->
     </style>
+
+    <style name="AppThemeNight" parent="Theme.AppCompat">
+        <!-- Otros atributos del estilo -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item> <!-- Si también deseas eliminar el título de la ventana -->
+    </style>
+
 </resources>
